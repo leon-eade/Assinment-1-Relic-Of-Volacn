@@ -33,8 +33,13 @@ public class Playerscript : MonoBehaviour
     public bool gloves = false;
     public bool boxBreaker = false;
     public bool Shovel = false;
+    public bool Relic = false;
     bool canDttwu;
     bool canDttwd;
+    bool canwin;
+    bool canleave = false;
+    public bool won=false;
+    public bool loss=false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,6 +64,30 @@ public class Playerscript : MonoBehaviour
         climbD();
         buy();
         DigThrough();
+        GetRelic();
+        win();
+    }
+    void win()
+    {
+        if (interactAction.WasPressedThisFrame() && Relic && canleave)
+        {
+            camPlace2 -= 20;
+            won = true;
+            Destroy(gameObject);
+        }
+        if (interactAction.WasPressedThisFrame() && !Relic && canleave)
+        {
+            camPlace2 -= 40;
+            loss = true;
+            Destroy(gameObject);
+        }
+    }
+    void GetRelic()
+    {
+        if (interactAction.WasPressedThisFrame() && canwin)
+        {
+            Relic = true;
+        }
     }
     void DigThrough()
     {
@@ -69,7 +98,7 @@ public class Playerscript : MonoBehaviour
             transform.position = new Vector2(posP2, posP);
             camPlace += 11;
         }
-        if (interactAction.WasPressedThisFrame() && canDttwd && Shovel)
+        if (interactAction.WasPressedThisFrame() && canDttwd)
         {
             posP -= 11;
             room -= 1;
@@ -215,6 +244,14 @@ public class Playerscript : MonoBehaviour
         {
             canDttwd = true;
         }
+        if (collision.gameObject.tag == "TFR")
+        {
+            canwin = true;
+        }
+        if (collision.gameObject.tag == "Exit")
+        {
+            canleave = true;
+        }
         
     }
     private void OnTriggerExit2D(UnityEngine.Collider2D collision)
@@ -255,6 +292,14 @@ public class Playerscript : MonoBehaviour
         if (collision.gameObject.tag == "Dttwd")
         {
             canDttwd = false;
+        }
+        if (collision.gameObject.tag == "TFR")
+        {
+            canwin = false;
+        }
+        if (collision.gameObject.tag == "Exit")
+        {
+        canleave = false;
         }
     }
     void Movement()

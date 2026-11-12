@@ -17,6 +17,14 @@ public class Coincount : MonoBehaviour
     {
         coincount = ps.Coincountp;
         outp = coincount.ToString();
-        output.text = outp;  
+        output.text = outp;
+        gameover();
+    }
+    void gameover()
+    {
+        if (ps.won || ps.loss)
+        {
+            Destroy(gameObject);
+        }
     }
 }

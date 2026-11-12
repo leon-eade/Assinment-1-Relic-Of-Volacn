@@ -18,6 +18,7 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameover();
         if (ps.room2 == 1)
         {
             anim.SetInteger("map2", 1);
@@ -86,6 +87,13 @@ public class Map : MonoBehaviour
             else
             {
                 rb.transform.position = new Vector2(1000, 1000);
-            }
+        }
+    }
+    void gameover()
+    {
+        if (ps.won || ps.loss)
+        {
+            Destroy(gameObject);
+        }
     }
 }

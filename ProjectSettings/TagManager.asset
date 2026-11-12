@@ -22,6 +22,7 @@ TagManager:
   - Dttwu
   - Dttwd
   - TFR
+  - Exit
   layers:
   - Default
   - TransparentFX
