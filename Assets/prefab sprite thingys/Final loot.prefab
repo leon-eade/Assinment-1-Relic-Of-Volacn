@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a38920970e72b94aa590732a2631cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chests
-  Loot1: {fileID: 3616908798970127401}
-  Loot2: {fileID: 3616908798970127401}
+  Loot1: {fileID: 5665621778206876050, guid: efb0c84122dcf774c9a227f7392e9f1c, type: 3}
+  Loot2: {fileID: 5665621778206876050, guid: efb0c84122dcf774c9a227f7392e9f1c, type: 3}
   Loot3: {fileID: 3616908798970127401}
 --- !u!50 &7501105420381855785
 Rigidbody2D:
