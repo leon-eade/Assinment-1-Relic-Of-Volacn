@@ -71,9 +71,38 @@ public class Playerscript : MonoBehaviour
     {
         if (interactAction.WasPressedThisFrame() && Relic && canleave)
         {
-            camPlace2 -= 20;
-            won = true;
-            Destroy(gameObject);
+            if (Coincountp < 100)
+            {
+                camPlace2 -= 20;
+                won = true;
+                Destroy(gameObject);
+            }
+            
+            if (Coincountp >= 100&&Coincountp<500)
+            {
+                camPlace2 -= 60;
+                won = true;
+                Destroy(gameObject);
+            }
+            if (Coincountp >= 500&&Coincountp<1000)
+            {
+                camPlace2 -= 80;
+                won = true;
+                Destroy(gameObject);
+            }
+            if (Coincountp >= 1000&&Coincountp<2000)
+            {
+                camPlace2 -= 100;
+                won = true;
+                Destroy(gameObject);
+            }
+            if (Coincountp > 2000)
+            {
+                camPlace2 -= 120;
+                won = true;
+                Destroy(gameObject);
+            }
+            
         }
         if (interactAction.WasPressedThisFrame() && !Relic && canleave)
         {
