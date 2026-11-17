@@ -38,6 +38,7 @@ public class Playerscript : MonoBehaviour
     bool canDttwd;
     bool canwin;
     bool canleave = false;
+
     public bool won=false;
     public bool loss=false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
